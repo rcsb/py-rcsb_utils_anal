@@ -62,7 +62,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
         #
         self.__mU = MarshalUtil()
         #
-        self.__entryResD = self.__mU.doImport(self.__entryResDataSavePath, format="pickle")
+        self.__entryResD = self.__mU.doImport(self.__entryResDataSavePath, fmt="pickle")
         #
         self.__tU = TaxonomyUtils()
         self.__startTime = time.time()
@@ -148,7 +148,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
 
         """
         try:
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             for entryId in entryD:
                 for entityId, eD in entryD[entryId]["selected_polymer_entities"].items():
 
@@ -165,7 +165,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
 
         """
         try:
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             for entryId, _ in entryD.items():
                 logger.debug("Entry keys %r", list(self.__entryResD[entryId].keys()))
                 if self.__matchEntry(entryId, resLimit=1.2, polymerComposition="heteromeric protein"):
@@ -181,7 +181,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
         try:
             iCountH = 0
             iCountB = 0
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             for entryId, _ in entryD.items():
                 if not self.__matchEntry(entryId, resLimit=1.2):
                     continue
@@ -207,7 +207,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
         """ Test case - protein sequence instance gaps and widths all cases
         """
         try:
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             gapCountList = []
             gapLengthList = []
             entryCountD = {}
@@ -265,7 +265,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
         """ Test case - protein sequence instance occupancy segment counts and segment widths all cases
         """
         try:
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             segmentCountList = []
             segmentLengthList = []
             entryCountD = {}
@@ -324,7 +324,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
 
         """
         try:
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             covRefDbList = []
             covSampleList = []
             entryCountD = {}
@@ -427,7 +427,7 @@ class DisorderChartUtilsTests(unittest.TestCase):
             tU = TaxonomyUtils()
             logger.info("Done loading taxonomy data")
             iCount = 0
-            entryD = self.__mU.doImport(self.__instanceSavePath, format="pickle")
+            entryD = self.__mU.doImport(self.__instanceSavePath, fmt="pickle")
             for entryId in entryD:
                 for entityId, eD in entryD[entryId]["selected_polymer_entities"].items():
                     taxId = eD["ncbi_taxonomy_id"] if "ncbi_taxonomy_id" in eD else None
