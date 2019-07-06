@@ -1,2 +1,6 @@
 rcsb.utils.io >= 0.31
 rcsb.utils.config >= 0.18
+requests
+ete3
+matplotlib
+numpy
