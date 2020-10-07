@@ -1,5 +1,5 @@
 # File: setup.py
-# Date: 23-Feb-2019
+# Date: 7-Oct-2020
 #
 # Updates:
 #
@@ -40,7 +40,7 @@ setup(
     ),
     entry_points={"console_scripts": []},
     #
-    install_requires=["rcsb.utils.io >= 0.31", "rcsb.utils.config >= 0.18", "requests", "ete3", "matplotlib", "numpy"],
+    install_requires=["rcsb.utils.io >= 0.76", "rcsb.utils.config >= 0.35", "rcsb.exdb >= .66", "requests", "ete3", "matplotlib", "numpy"],
     packages=find_packages(exclude=["rcsb.mock-data", "rcsb.utils.tests-anal", "rcsb.utils.tests-*", "tests.*"]),
     package_data={
         # If any package contains *.md or *.rst ...  files, include them:
