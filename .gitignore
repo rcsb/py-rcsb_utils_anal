@@ -1,4 +1,5 @@
 .vscode
+CACHE/
 test-output/
 !test-output/.gitkeep
 test-data/

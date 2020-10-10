@@ -1,25 +1,20 @@
 ##
 # File: EntityClusterDataPrep.py
-# Date: 21-Mar-2017
+# Date: 8-Oct-2020
 #
-# Update:
-#    18-May-2017  jdw adapt for os config
-#    19-Apr-2018  jdw adding wos package
-#    15-Jul-2018. jdw migrated to latest entity sequence clusters.
-#    28-Jul-2018  jdw generalize path to mmseqs, add as input to constructor
 ##
 import os
-import pickle
 import logging
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("root")
+from rcsb.utils.io.MarshalUtil import MarshalUtil
+
+logger = logging.getLogger(__name__)
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 TOPDIR = os.path.dirname(os.path.dirname(HERE))
 
 
-class FormatEntityClusters(object):
+class EntityClusterDataPrep(object):
     """
     Using mmseq2 entity clusters -
 
@@ -33,11 +28,13 @@ class FormatEntityClusters(object):
 
     """
 
-    def __init__(self, clusterPath):
-        self.__clusterPath = clusterPath if clusterPath else "../mmseqs"
-        self.__pickleProtocol = 0
+    def __init__(self, clusterPath=None, workPath=None):
+        self.__workPath = workPath if workPath else "."
+        self.__clusterPath = clusterPath if clusterPath else "mmseqs"
+        self.__mU = MarshalUtil(workPath=self.__workPath)
+        #
         # clusters-by-entity-
-        self.__bcData = [
+        self.__mmseqsData = [
             ("100", "clusters-by-entity-100.txt"),
             ("30", "clusters-by-entity-30.txt"),
             ("40", "clusters-by-entity-40.txt"),
@@ -47,82 +44,46 @@ class FormatEntityClusters(object):
             ("95", "clusters-by-entity-95.txt"),
         ]
 
-    def __serialize(self, filePath, iD):
+    def __serialize(self, filePath, iD, fmt="json"):
         try:
-            with open(filePath, "wb") as fb:
-                pickle.dump(iD, fb, self.__pickleProtocol)
-            return True
+            ok = self.__mU.doExport(filePath, iD, fmt=fmt)
         except Exception as e:
             logger.exception("Failing with %s", str(e))
-        return False
-
-    def __readFile(self, fPath):
-        ifh = open(fPath, "r")
-        iClust = 1
-        clusterD = {}
-        for line in ifh:
-            fields = str(line[:-1]).split()
-            clusterD[iClust] = fields
-            iClust += 1
-        ifh.close()
-        #
-        clusterD[iClust] = ["1D01_2"]
-        return clusterD
-
-    def __makeIdChainDict(self, clusterD):
-        idChD = {}
-        for k, vL in clusterD.items():
-            for idChain in vL:
-                idChD[idChain] = k
-        return idChD
+        return ok
 
     def __makeIdEntityDict(self, clusterD):
-        idEntityD = {}
-        for k, vL in clusterD.items():
-            for idEntity in vL:
-                idEntityD[idEntity] = k
-        return idEntityD
+        entityIdD = {}
+        for clusterId, entityIdL in clusterD.items():
+            for idEntity in entityIdL:
+                entityIdD[idEntity] = str(clusterId)
+        return entityIdD
 
     def __build(self):
-        mD = {}
-        sL = ["100", "95", "90", "70", "50", "30"]
-        for simV, fn in self.__bcData:
-            clusterD = self.__readFile(os.path.join(self.__clusterPath, fn))
-            mD[simV] = self.__makeIdEntityDict(clusterD)
-        kL = sorted(mD["100"].keys())
+        entityD = {}
+        clusterD = {}
+        # levelList = ["100", "95", "90", "70", "50", "30"]
+        for level, fileName in self.__mmseqsData:
+            pth = os.path.join(self.__clusterPath, fileName)
+            cL = self.__mU.doImport(pth, fmt="list")
+            cD = {str(ii): line.split() for ii, line in enumerate(cL, 1)}
+            logger.info("Cluster level %s distinct members %d", level, len(cD))
+            entityD[level] = self.__makeIdEntityDict(cD)
+            clusterD[level] = cD
+        return {"entityD": entityD, "clusterD": clusterD}
         #
-        rD = {}
-        for k in kL:
-            tL = []
-            for tS in sL:
-                if k in mD[tS]:
-                    tL.append(str(mD[tS][k]))
-                else:
-                    logger.info("Missing value for sim %s case %s\n", tS, k)
-                    tL.append("na")
 
-            rD[k] = tuple(tL)
-        return rD
+    def fetch(self):
+        return self.__build()
 
-    def export(self, fPath, fType="pic"):
+    def export(self, filePath, fmt="json"):
         rD = self.__build()
-        if fType == "pic":
-            self.__serialize(os.path.join(fPath), rD)
-        else:
-            ofh = open(os.path.join(fPath), "w")
-            kys = sorted(rD.keys())
-            ofh.write("PDB_ID,ENTITY_ID,100,95,90,70,50,30\n")
-            for k in kys:
-                v = rD[k]
-                ff = k.split("_")
-                ff.extend(v)
-                ofh.write("%s\n" % ",".join(ff))
-            ofh.close()
+        ok = self.__mU.doExport(filePath, rD, fmt=fmt)
+        return ok
 
 
 if __name__ == "__main__":
-    clusterTopPath = "../mmseqs"
-    clustPath = os.path.join(clusterTopPath, "entity-clust-combined.pic")
-    fbc = FormatEntityClusters(clusterPath=clusterTopPath)
-    fbc.export(clustPath, fType="pic")
+    clusterTopPath = os.path.join(TOPDIR, "mock-data", "cluster_data", "mmseqs_clusters_current")
+    exportPath = os.path.join(".", "entity-clust-combined.json")
+    fbc = EntityClusterDataPrep(clusterPath=clusterTopPath)
+    fbc.export(exportPath, fmt="json")
     #
