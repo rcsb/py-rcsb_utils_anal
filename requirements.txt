@@ -1,6 +1,6 @@
 rcsb.utils.io >= 0.76
 rcsb.utils.config >= 0.35
-rcsb.exdb >= .66
+rcsb.exdb >= 0.66
 requests
 ete3
 matplotlib

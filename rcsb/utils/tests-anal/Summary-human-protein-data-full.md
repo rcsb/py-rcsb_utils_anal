@@ -1,12 +1,13 @@
 
-## Summary of Human Protein Data (2020-10-13)
+## Summary of Human Protein Data (2020-10-10)
 
-Data tabulated (Oct 14 PDB Release) for human (taxId=9606) or Humanized antibody proteins are annotated as human taxonomy (taxId=9606).
+Data tabulated (Oct 7 PDB Release) for human (taxId=9606) or human hosted (221 additional taxons) protein entities.
+Humanized antibody proteins are annotated as human taxonomy (taxId=9606).
 
 ```none
-    Total protein entity count: 70856  (human taxonomy taxId=9606)
-    Unique reference sequence (UniProt) assignments: 7105
-    Protein entities without reference sequence assignments: 4876
+    Total protein entity count: 75696  (human/human hosted)
+    Unique reference sequence (UniProt) assignments: 7838
+    Protein entities without reference sequence assignments: 4955
 ```
 
 Protein entities with multiple distinct taxonomies have been excluded.  Proteins with multiple
@@ -14,8 +15,8 @@ human taxonomy reference sequence assignments (e.g., 2 UniProt ID within human t
 Some artifacts in which PDB taxonomy assignment differs from the SIFTS reassignment have been excluded.
 
 ```none
-    Multi-taxonomy entities: 1106 (excluded)
-    Bad SIFTS assignments (switched taxonomies): 112 (excluded)
+    Multi-taxonomy entities: 1173 (excluded)
+    Bad SIFTS assignments (switched taxonomies): 131 (excluded)
 ```
 
 Clustering performed on all protein polymer entities.  The following table gives the
@@ -23,22 +24,22 @@ essential statistics for the clustering solution.
 
 | % Sequence Identity | Distinct Groups in the Cluster|
 | :-----: | :-------: |
-| 30 | 36477 |
-| 40 | 41428 |
-| 50 | 45863 |
-| 70 | 53376 |
-| 90 | 61734 |
-| 95 | 65719 |
-| 100| 94393 |
+| 30  | 36399 |
+| 40  | 41347 |
+| 50  | 45782 |
+| 70  | 53256 |
+| 90  | 61609 |
+| 95  | 65572 |
+| 100 | 94209 |
 
 For the current human protein entity cohort, the populated cluster statistics
 are summarized below.
 
 |% Sequence Identity | Cluster Groups Containing a Human Protein|
 | :-----: | :-------: |
-| 100 | 21814 |
-|  95 | 14392 |
-|  90 | 13091 |
+| 100 | 23295 |
+|  95 | 15165 |
+|  90 | 13807 |
 
 ## Protein Entity-level Data Sets
 
@@ -69,12 +70,12 @@ These files are ordered by the size of the cluster group largest to smallest. To
 
 ## Release statistics for Human Proteins
 
-Counts of entries containing human taxonomy proteins released by year
+Counts of entries containing human and human hosted proteins released by year
 are summarized in the following table.  These data are include
 in attached file `human-containing-entries-by-year.csv`.
 
-| Year | Entries_Containing_Human_Proteins |
-| :-------: | :-------: |
+| Year| Entries_Containing_Human_Proteins |
+| ----- | :-------: |
 | 1976 | 2 |
 | 1977 | 1 |
 | 1979 | 2 |
@@ -84,39 +85,39 @@ in attached file `human-containing-entries-by-year.csv`.
 | 1984 | 4 |
 | 1985 | 1 |
 | 1987 | 1 |
-| 1988 | 2 |
-| 1989 | 3 |
-| 1990 | 17 |
-| 1991 | 10 |
-| 1992 | 46 |
-| 1993 | 110 |
-| 1994 | 235 |
-| 1995 | 178 |
-| 1996 | 273 |
-| 1997 | 273 |
-| 1998 | 426 |
-| 1999 | 505 |
-| 2000 | 538 |
-| 2001 | 554 |
-| 2002 | 614 |
-| 2003 | 832 |
-| 2004 | 1095 |
-| 2005 | 1423 |
-| 2006 | 1814 |
-| 2007 | 1974 |
-| 2008 | 1674 |
-| 2009 | 1857 |
-| 2010 | 2006 |
-| 2011 | 2132 |
-| 2012 | 2470 |
-| 2013 | 2655 |
-| 2014 | 2722 |
-| 2015 | 2842 |
-| 2016 | 3421 |
-| 2017 | 4268 |
-| 2018 | 4017 |
-| 2019 | 3832 |
-| 2020 | 3588 |
+| 1988 | 3 |
+| 1989 | 6 |
+| 1990 | 30 |
+| 1991 | 13 |
+| 1992 | 51 |
+| 1993 | 123 |
+| 1994 | 262 |
+| 1995 | 214 |
+| 1996 | 316 |
+| 1997 | 325 |
+| 1998 | 484 |
+| 1999 | 572 |
+| 2000 | 582 |
+| 2001 | 608 |
+| 2002 | 657 |
+| 2003 | 872 |
+| 2004 | 1149 |
+| 2005 | 1466 |
+| 2006 | 1916 |
+| 2007 | 2055 |
+| 2008 | 1791 |
+| 2009 | 1958 |
+| 2010 | 2147 |
+| 2011 | 2245 |
+| 2012 | 2635 |
+| 2013 | 2916 |
+| 2014 | 2905 |
+| 2015 | 2997 |
+| 2016 | 3614 |
+| 2017 | 4402 |
+| 2018 | 4192 |
+| 2019 | 3988 |
+| 2020 | 4072 |
 
 ## Release Statistics for Leading Examples of Human Proteins
 
@@ -127,8 +128,8 @@ These data are included in attached files `100-leading-human-containing-entities
 
 ### Sequence Identity 100%
 
-| Year | Entries_With_Leading_Human_Protein |
-| :-------: | :-------: |
+| Year| Entries With Leading Human Protein |
+| :-----: | :-------: |
 | 1976 | 2 |
 | 1977 | 1 |
 | 1979 | 1 |
@@ -138,44 +139,44 @@ These data are included in attached files `100-leading-human-containing-entities
 | 1984 | 1 |
 | 1985 | 1 |
 | 1987 | 1 |
-| 1988 | 2 |
-| 1989 | 3 |
-| 1990 | 9 |
+| 1988 | 3 |
+| 1989 | 6 |
+| 1990 | 12 |
 | 1991 | 7 |
-| 1992 | 31 |
-| 1993 | 66 |
-| 1994 | 98 |
-| 1995 | 90 |
-| 1996 | 88 |
-| 1997 | 160 |
-| 1998 | 236 |
-| 1999 | 276 |
-| 2000 | 314 |
-| 2001 | 318 |
-| 2002 | 291 |
-| 2003 | 383 |
-| 2004 | 529 |
-| 2005 | 821 |
-| 2006 | 979 |
-| 2007 | 1120 |
-| 2008 | 800 |
-| 2009 | 784 |
-| 2010 | 798 |
-| 2011 | 816 |
-| 2012 | 870 |
-| 2013 | 939 |
-| 2014 | 1012 |
-| 2015 | 953 |
-| 2016 | 1157 |
-| 2017 | 1127 |
-| 2018 | 1162 |
-| 2019 | 1259 |
-| 2020 | 1120 |
+| 1992 | 34 |
+| 1993 | 70 |
+| 1994 | 106 |
+| 1995 | 105 |
+| 1996 | 103 |
+| 1997 | 185 |
+| 1998 | 270 |
+| 1999 | 310 |
+| 2000 | 335 |
+| 2001 | 347 |
+| 2002 | 314 |
+| 2003 | 406 |
+| 2004 | 552 |
+| 2005 | 838 |
+| 2006 | 1028 |
+| 2007 | 1165 |
+| 2008 | 853 |
+| 2009 | 829 |
+| 2010 | 852 |
+| 2011 | 867 |
+| 2012 | 924 |
+| 2013 | 1008 |
+| 2014 | 1087 |
+| 2015 | 1015 |
+| 2016 | 1232 |
+| 2017 | 1188 |
+| 2018 | 1236 |
+| 2019 | 1348 |
+| 2020 | 1206 |
 
 ### Sequence Identity 95%
 
-| Year | Entries_With_Leading_Human_Protein |
-| :-------: | :-------: |
+| Year| Entries With Leading Human Protein |
+| :-----: | :-------: |
 | 1976 | 2 |
 | 1977 | 1 |
 | 1979 | 1 |
@@ -184,44 +185,44 @@ These data are included in attached files `100-leading-human-containing-entities
 | 1984 | 1 |
 | 1985 | 1 |
 | 1987 | 1 |
-| 1988 | 2 |
-| 1989 | 3 |
-| 1990 | 8 |
+| 1988 | 3 |
+| 1989 | 5 |
+| 1990 | 9 |
 | 1991 | 7 |
-| 1992 | 14 |
-| 1993 | 37 |
-| 1994 | 65 |
-| 1995 | 65 |
-| 1996 | 61 |
-| 1997 | 107 |
-| 1998 | 148 |
-| 1999 | 192 |
-| 2000 | 202 |
-| 2001 | 205 |
-| 2002 | 201 |
-| 2003 | 258 |
-| 2004 | 380 |
-| 2005 | 689 |
-| 2006 | 750 |
-| 2007 | 884 |
-| 2008 | 568 |
-| 2009 | 528 |
-| 2010 | 547 |
-| 2011 | 534 |
-| 2012 | 546 |
-| 2013 | 562 |
-| 2014 | 593 |
-| 2015 | 579 |
-| 2016 | 671 |
-| 2017 | 712 |
-| 2018 | 699 |
-| 2019 | 788 |
-| 2020 | 738 |
+| 1992 | 16  |
+| 1993 | 39  |
+| 1994 | 69  |
+| 1995 | 72  |
+| 1996 | 68  |
+| 1997 | 122 |
+| 1998 | 162 |
+| 1999 | 210 |
+| 2000 | 214 |
+| 2001 | 212 |
+| 2002 | 210 |
+| 2003 | 265 |
+| 2004 | 392 |
+| 2005 | 701 |
+| 2006 | 771 |
+| 2007 | 903 |
+| 2008 | 592 |
+| 2009 | 557 |
+| 2010 | 570 |
+| 2011 | 554 |
+| 2012 | 580 |
+| 2013 | 609 |
+| 2014 | 621 |
+| 2015 | 610 |
+| 2016 | 711 |
+| 2017 | 750 |
+| 2018 | 737 |
+| 2019 | 830 |
+| 2020 | 783 |
 
 ### Sequence Identity 90%
 
-| Year | Entries_With_Leading_Human_Protein |
-| :-------: | :-------: |
+| Year| Entries_With_Leading_Human_Protein |
+| :-----: | :-------: |
 | 1976 | 2 |
 | 1977 | 1 |
 | 1979 | 1 |
@@ -230,36 +231,36 @@ These data are included in attached files `100-leading-human-containing-entities
 | 1984 | 1 |
 | 1985 | 1 |
 | 1987 | 1 |
-| 1988 | 2 |
-| 1989 | 3 |
-| 1990 | 8 |
+| 1988 | 3 |
+| 1989 | 5 |
+| 1990 | 9 |
 | 1991 | 7 |
-| 1992 | 13 |
-| 1993 | 36 |
-| 1994 | 64 |
-| 1995 | 62 |
-| 1996 | 60 |
-| 1997 | 105 |
-| 1998 | 142 |
-| 1999 | 187 |
-| 2000 | 199 |
-| 2001 | 201 |
-| 2002 | 200 |
-| 2003 | 253 |
-| 2004 | 365 |
-| 2005 | 678 |
-| 2006 | 725 |
-| 2007 | 855 |
-| 2008 | 540 |
-| 2009 | 507 |
-| 2010 | 516 |
-| 2011 | 497 |
-| 2012 | 512 |
-| 2013 | 519 |
-| 2014 | 525 |
-| 2015 | 520 |
-| 2016 | 600 |
-| 2017 | 625 |
-| 2018 | 601 |
-| 2019 | 712 |
-| 2020 | 630 |
+| 1992 | 15 |
+| 1993 | 38 |
+| 1994 | 68 |
+| 1995 | 68 |
+| 1996 | 66 |
+| 1997 | 119 |
+| 1998 | 154 |
+| 1999 | 206 |
+| 2000 | 210 |
+| 2001 | 208 |
+| 2002 | 208 |
+| 2003 | 260 |
+| 2004 | 376 |
+| 2005 | 691 |
+| 2006 | 744 |
+| 2007 | 868 |
+| 2008 | 562 |
+| 2009 | 533 |
+| 2010 | 539 |
+| 2011 | 518 |
+| 2012 | 545 |
+| 2013 | 560 |
+| 2014 | 553 |
+| 2015 | 551 |
+| 2016 | 638 |
+| 2017 | 663 |
+| 2018 | 641 |
+| 2019 | 751 |
+| 2020 | 678 |

@@ -1,13 +1,13 @@
 ##
-# File:    testExtractHumanProteinData.py
+# File:    testLeadingHumanProteinFull.py
 # Author:  J. Westbrook
-# Date:    7-Oct-2020
+# Date:    13-Oct-2020
 #
 # Updates:
 #
 ##
 """
-Larger tests/examples of extractor functions selecting values from collections.
+Human protein and human hosted proteins.
 """
 
 __docformat__ = "restructuredtext en"
@@ -34,9 +34,9 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 TOPDIR = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 
 
-class ExampleExtractorTests(unittest.TestCase):
+class LeadingHumanProteinFullTests(unittest.TestCase):
     def __init__(self, methodName="runTest"):
-        super(ExampleExtractorTests, self).__init__(methodName)
+        super(LeadingHumanProteinFullTests, self).__init__(methodName)
         self.__verbose = True
 
     def setUp(self):
@@ -546,13 +546,14 @@ class ExampleExtractorTests(unittest.TestCase):
         return retRowFullL, retRowL, firstEntriesPerYearCountRowL
 
 
-def objectExtractorExampleSuite():
+def leadingHumanProteinFullSuite():
     suiteSelect = unittest.TestSuite()
-    suiteSelect.addTest(ExampleExtractorTests("testExtractEntryDetails"))
-    suiteSelect.addTest(ExampleExtractorTests("testExtractEntityTaxonomyAndRefDetails"))
+    suiteSelect.addTest(LeadingHumanProteinFullTests("testExtractUniProtDetails"))
+    suiteSelect.addTest(LeadingHumanProteinFullTests("testExtractEntryDetails"))
+    suiteSelect.addTest(LeadingHumanProteinFullTests("testfindFirst"))
     return suiteSelect
 
 
 if __name__ == "__main__":
-    mySuite = objectExtractorExampleSuite()
+    mySuite = leadingHumanProteinFullSuite()
     unittest.TextTestRunner(verbosity=2).run(mySuite)
