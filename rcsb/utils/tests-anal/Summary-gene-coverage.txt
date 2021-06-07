@@ -1,0 +1,36 @@
+ Identity Group   Taxonomy  # genes with
+                             PDB matches
+ 95        Cdx     human       74
+ 95        Heme    human       98
+ 95        Cdx     mouse       11
+ 95        Heme    mouse       14
+ 95        Cdx     other       9
+ 95        Heme    other       16
+
+ 90        Cdx     human       75
+ 90        Heme    human       99
+ 90        Cdx     mouse       13
+ 90        Heme    mouse       21
+ 90        Cdx     other       11
+ 90        Heme    other       19
+
+ 70        Cdx     human       78
+ 70        Heme    human       104
+ 70        Cdx     mouse       14
+ 70        Heme    mouse       21
+ 70        Cdx     other       14
+ 70        Heme    other       22
+
+ 50        Cdx     human       78
+ 50        Heme    human       104
+ 50        Cdx     mouse       14
+ 50        Heme    mouse       21
+ 50        Cdx     other       15
+ 50        Heme    other       22
+
+ 40        Cdx     human       78
+ 40        Heme    human       104
+ 40        Cdx     mouse       14
+ 40        Heme    mouse       21
+ 40        Cdx     other       15
+ 40        Heme    other       22

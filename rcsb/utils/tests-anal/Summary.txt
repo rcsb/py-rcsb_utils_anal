@@ -1,0 +1,61 @@
+
+In the tables below,  Organism = "other" means not human and not mouse.
+
+ Identity  Group  Organism  Matched/Total Genes
+ 95         Cdx    human    203/309
+ 95         Heme   human    262/407
+ 95         Cdx    mouse    117/309
+ 95         Heme   mouse    143/407
+ 95         Cdx    other    259/309
+ 95         Heme   other    337/407
+
+ Coverage 86.73% unmatched heme genes (54) ['ARFRP1', 'ARID2', 'ASXL1', 'BCL11B', 'BCL7A', 'CCND2', 'CCT6B', 'CD58', 'CD70', 'CDKN2B', 'CHD2', 'CIITA', 'CUX1', 'ECT2L', 'ELP2', 'FGF14', 'FGF3', 'FGF6', 'FOXL2', 'GADD45B', 'GPR124', 'HIST1H1C', 'HIST1H1D', 'ICK', 'IKBKE', 'INPP4B', 'IRF8', 'IRS2', 'KLHL6', 'LRP1B', 'MAF', 'MAGED1', 'MAP3K6', 'MED12', 'MPL', 'MYCL', 'MYO18A', 'P2RY8', 'RASGEF1A', 'S1PR2', 'SDHC', 'SDHD', 'SERP2', 'SETBP1', 'SMARCA1', 'SOCS1', 'TLL2', 'TNFRSF11A', 'WDR90', 'WISP3', 'YY1AP1', 'ZMYM3', 'ZNF703', 'ZRSR2']
+ Coverage 87.38% unmatched cdx genes (39) ['ACVR1B', 'ALOX12B', 'ARFRP1', 'ASXL1', 'BTG1', 'CCND2', 'CD70', 'CDKN2B', 'FGF14', 'FGF3', 'FGF6', 'FOXL2', 'GABRA6', 'GATA6', 'HSD3B1', 'IKBKE', 'INPP4B', 'IRS2', 'KEL', 'KLHL6', 'LTK', 'MAF', 'MAP3K13', 'MED12', 'MKNK1', 'MPL', 'MYCL', 'P2RY8', 'PIK3C2B', 'RAD51B', 'RAD51C', 'REL', 'SDHC', 'SDHD', 'SOCS1', 'TBX3', 'TIPARP', 'XRCC2', 'ZNF703']
+ Total match length (12010)
+
+Identity  Group  Organism  Matched/Total Genes
+ 90        Cdx     human      211/309
+ 90        Heme    human      273/407
+ 90        Cdx     mouse      122/309
+ 90        Heme    mouse      151/407
+ 90        Cdx     other      267/309
+ 90        Heme    other      344/407
+
+ Coverage 87.96% unmatched heme genes (49) ['ARFRP1', 'ARID2', 'ASXL1', 'BCL11B', 'BCL7A', 'CCND2', 'CCT6B', 'CD70', 'CDKN2B', 'CHD2', 'CIITA', 'ECT2L', 'ELP2', 'FGF14', 'FGF3', 'FGF6', 'FOXL2', 'GADD45B', 'GPR124', 'HIST1H1C', 'HIST1H1D', 'ICK', 'IKBKE', 'INPP4B', 'IRF8', 'KLHL6', 'LRP1B', 'MAF', 'MAGED1', 'MAP3K6', 'MED12', 'MPL', 'MYCL', 'MYO18A', 'P2RY8', 'RASGEF1A', 'S1PR2', 'SERP2', 'SETBP1', 'SMARCA1', 'SOCS1', 'TLL2', 'TNFRSF11A', 'WDR90', 'WISP3', 'YY1AP1', 'ZMYM3', 'ZNF703', 'ZRSR2']
+ Coverage 89.00% unmatched cdx genes (34) ['ALOX12B', 'ARFRP1', 'ASXL1', 'BTG1', 'CCND2', 'CD70', 'CDKN2B', 'FGF14', 'FGF3', 'FGF6', 'FOXL2', 'GABRA6', 'HSD3B1', 'IKBKE', 'INPP4B', 'KEL', 'KLHL6', 'LTK', 'MAF', 'MAP3K13', 'MED12', 'MKNK1', 'MPL', 'MYCL', 'P2RY8', 'PIK3C2B', 'RAD51B', 'RAD51C', 'REL', 'SOCS1', 'TBX3', 'TIPARP', 'XRCC2', 'ZNF703']
+ Total match length (14,170)
+
+ Identity  Group  Organism  Matched/Total Genes
+ 70         Cdx     human      236/309
+ 70         Heme    human      305/407
+ 70         Cdx     mouse      139/309
+ 70         Heme    mouse      173/407
+ 70         Cdx     other      279/309
+ 70         Heme    other      362/407
+
+ Coverage 91.89% unmatched heme genes (33) ['ARFRP1', 'ARID2', 'ASXL1', 'BCL7A', 'CCND2', 'CD70', 'CIITA', 'ECT2L', 'ELP2', 'FGF3', 'FGF6', 'FOXL2', 'GADD45B', 'GPR124', 'ICK', 'INPP4B', 'KLHL6', 'LRP1B', 'MAGED1', 'MED12', 'MYCL', 'MYO18A', 'P2RY8', 'RASGEF1A', 'S1PR2', 'SERP2', 'SETBP1', 'WDR90', 'WISP3', 'YY1AP1', 'ZMYM3', 'ZNF703', 'ZRSR2']
+ Coverage 93.20% unmatched cdx genes (21) ['ALOX12B', 'ARFRP1', 'ASXL1', 'CCND2', 'CD70', 'FGF3', 'FGF6', 'FOXL2', 'HSD3B1', 'INPP4B', 'KEL', 'KLHL6', 'MED12', 'MYCL', 'P2RY8', 'PIK3C2B', 'RAD51B', 'RAD51C', 'TIPARP', 'XRCC2', 'ZNF703']
+ Total match length (18184)
+
+ Identity  Group  Organism  Matched/Total Genes
+ 50         Cdx     human      266/309
+ 50         Heme    human      341/407
+ 50         Cdx     mouse      173/309
+ 50         Heme    mouse      214/407
+ 50         Cdx     other      293/309
+ 50         Heme    other      385/407
+
+ Coverage 95.33% unmatched heme genes (19) ['ARFRP1', 'ARID2', 'ASXL1', 'BCL7A', 'CIITA', 'ECT2L', 'ICK', 'INPP4B', 'KLHL6', 'MAGED1', 'MED12', 'MYO18A', 'P2RY8', 'RASGEF1A', 'SETBP1', 'WDR90', 'YY1AP1', 'ZNF703', 'ZRSR2']
+ Coverage 95.79% unmatched cdx genes (13) ['ALOX12B', 'ARFRP1', 'ASXL1', 'HSD3B1', 'INPP4B', 'KEL', 'KLHL6', 'MED12', 'P2RY8', 'RAD51B', 'RAD51C', 'TIPARP', 'ZNF703']
+ Total match length (26486)
+
+ Identity  Group  Organism  Matched/Total Genes
+ 40         Cdx    human       283/309
+ 40         Heme   human       365/407
+ 40         Cdx    mouse       198/309
+ 40         Heme   mouse       255/407
+ 40         Cdx    other       300/309
+ 40         Heme   other       396/407
+ Coverage 97.79% unmatched heme genes (9) ['ARID2', 'BCL7A', 'CIITA', 'INPP4B', 'MED12', 'RASGEF1A', 'SETBP1', 'YY1AP1', 'ZRSR2']
+ Coverage 98.06% unmatched cdx genes (6) ['HSD3B1', 'INPP4B', 'KEL', 'MED12', 'RAD51B', 'RAD51C']
+ Total match length (40618)

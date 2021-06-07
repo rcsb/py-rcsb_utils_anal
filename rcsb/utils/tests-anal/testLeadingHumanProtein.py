@@ -317,13 +317,16 @@ class LeadingHumanProteinTests(unittest.TestCase):
             sumEntryMT += nn
         #
         entriesPerYearCount = {}
+        entriesPerYearCountCum = {}
         sumEntry = 0
         for yr in sorted(entriesPerYear):
             nn = len(entriesPerYear[yr])
             entriesPerYearCount[yr] = nn
             sumEntry += nn
+            entriesPerYearCountCum[yr] = sumEntry
         #
         logger.info("entriesPerYearCount   (%d)  %r", sumEntry, entriesPerYearCount)
+        logger.info("entriesPerYearCount   (%d)  %r", sumEntry, entriesPerYearCountCum)
         logger.info("entriesPerYearMTCount (%d)  %r", sumEntryMT, entriesPerYearMTCount)
         #
         entriesPerYearCountRowL = []
