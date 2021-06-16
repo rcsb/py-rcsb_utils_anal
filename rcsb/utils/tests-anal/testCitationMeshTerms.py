@@ -15,6 +15,7 @@ __author__ = "John Westbrook"
 __email__ = "jwest@rcsb.rutgers.edu"
 __license__ = "Apache 2.0"
 
+from collections import defaultdict
 import copy
 import logging
 import os
@@ -61,9 +62,61 @@ class CitationMeshTermsTests(unittest.TestCase):
 
     def testExportMesh(self):
         """Export MESH terms for PDB primary citations"""
+        ommitL = [
+            "Models, Molecular",
+            "Protein Conformation",
+            "Amino Acid Sequence",
+            "Binding Sites",
+            "Molecular Sequence Data",
+            "Protein Binding",
+            "Animals",
+            "Protein Structure, Tertiary",
+            "Protein Structure, Secondary",
+            "Structure-Activity Relationship",
+            "Catalytic Domain",
+            "Sequence Homology, Amino Acid",
+            "Substrate Specificity",
+            "Mutation",
+            "Sequence Alignment",
+            "Recombinant Proteins",
+            "Kinetics",
+            "Crystallization",
+            "Ligands",
+            "Molecular Structure",
+            "Protein Structure, Quaternary",
+            "Protein Folding",
+            "Protein Multimerization",
+            "Nucleic Acid Conformation",
+            "Enzyme Inhibitors",
+            "Base Sequence",
+            "Amino Acid Substitution",
+            "Protein Domains",
+            "Amino Acid Motifs",
+            "Hydrogen-Ion Concentration",
+            "Cell Line",
+            "Models, Chemical",
+            "Models, Biological",
+            "Macromolecular Substances",
+        ]
         mU = MarshalUtil()
         enD = mU.doImport(os.path.join(self.__workPath, "entry-citation-details-example.json"), fmt="json")
         pmD = mU.doImport(os.path.join(self.__workPath, "entry-citation-mesh-example.json"), fmt="json")
+        #
+        logger.info("pmD (%d)", len(pmD["entry"]))
+        mCount = defaultdict(int)
+        for pmId, pD in pmD["entry"].items():
+            if "rcsb_pubmed_mesh_descriptors" in pD:
+                meshL = pD["rcsb_pubmed_mesh_descriptors"]
+                for mesh in meshL:
+                    mCount[mesh] += 1
+        mCountS = sorted(mCount.items(), key=lambda kv: kv[1], reverse=True)
+        tL = []
+        logger.info("mCountS (%d)", len(mCount))
+        for m, num in mCountS:
+            if num > 500:
+                tL.append((m, num))
+        #
+        logger.info("%r", tL)
         #
         pubMedD = pmD["entry"]
         #
@@ -72,6 +125,7 @@ class CitationMeshTermsTests(unittest.TestCase):
         for entryId, obj in enD["entry"].items():
             dD = {}
             doi = ""
+            pubMed = None
             if "rcsb_accession_info" in obj:
                 relYr = int(obj["rcsb_accession_info"]["initial_release_date"][:4])
             if "rcsb_primary_citation" in obj and "pdbx_database_id_PubMed" in obj["rcsb_primary_citation"]:
@@ -79,8 +133,8 @@ class CitationMeshTermsTests(unittest.TestCase):
             if "rcsb_primary_citation" in obj and "pdbx_database_id_DOI" in obj["rcsb_primary_citation"]:
                 doi = obj["rcsb_primary_citation"]["pdbx_database_id_DOI"]
             #
-            if pubMed in pubMedD and "rcsb_pubmed_mesh_descriptors" in pubMedD[pubMed]:
-                meshL = pubMedD[pubMed]["rcsb_pubmed_mesh_descriptors"]
+            if pubMed and pubMed in pubMedD and "rcsb_pubmed_mesh_descriptors" in pubMedD[pubMed]:
+                meshL = [m for m in pubMedD[pubMed]["rcsb_pubmed_mesh_descriptors"] if m not in ommitL]
                 if "rcsb_pubmed_doi" in pubMedD[pubMed]:
                     doi = pubMedD[pubMed]["rcsb_pubmed_doi"]
                 dD = {"entry": entryId, "release_year": relYr, "pubmed": pubMed, "doi": doi, "mesh_terms": ";".join(meshL)}
